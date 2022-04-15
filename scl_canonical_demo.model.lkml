@@ -1,4 +1,5 @@
-connection: "@{CONNECTION}"
+#connection: "@{CONNECTION}"
+connection: "looker-private-demo-1"
 
 # include all the views and dashboards
 include: "/dashboards/*"
@@ -6,7 +7,7 @@ include: "/private_views/*"
 include: "/public_views/*"
 include: "/derived_views/*"
 include: "/community_views/*"
-
+include: "/views/*.view.lkml"
 
 datagroup: scl_canonical_demo_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -14,6 +15,8 @@ datagroup: scl_canonical_demo_datagroup {
 }
 
 persist_with: scl_canonical_demo_datagroup
+
+explore: blumeglobal_rating_routes {}
 
 explore: inventory {
   label: "(1) Inventory and Location Analysis"
